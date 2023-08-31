@@ -1,0 +1,68 @@
+1)customer queries
+
+
+$customerInsert="insert into customers (`setupBoxNo`,`customerName`,`aadhaarNo`,`mobileNo`,`villageName`) values ('$setupBoxNo','$customerName','$aadhaarNo','$mobileNo','$villageName')";
+
+$allCustomers="Select * from customers";
+
+$customersByName="select * from customers Where setupBoxNo LIKE '%$s%' OR customerName LIKE '%$s%' OR mobileNo LIKE '%$s%'";
+
+
+$customerById="select * from customers Where setupBoxNo='$id'";
+
+$customerUpdate="update customers set where customerName='$Name'";
+
+$customerRechargeupdate="update customers set totalRecharge=totalRecharge+$amount where setupBoxNo='$id'";
+
+$customerDueupdate="update customers set totalDue=totalDue+$amount where setupBoxNo='$id'";
+
+$customerDueupdate="update customers set where customerName='$Name'";
+
+
+
+
+2)transactions
+
+$transactions="insert into transactions (`customerId`,`amount`,`type`,`date`,) values ('$customerId','$amount','$type','$date')";
+
+$alltransactions="Select * from transactions";
+
+$dueTransactions="Select * from transactions where type='due'";
+
+$customertransactions="Select * from transactions where customerId='$id'";
+
+$transactionsByName="select * from transactions Where customerId LIKE '%$s%' OR amount LIKE '%$s%' OR date LIKE '%$s%'";
+
+
+3)dashboard
+
+
+$total="Select sum(amount) from transactions";
+
+$due="Select sum(amount) from transactions where type='due'";
+
+$todayTotal="Select sum(amount) from transactions where date='$date'";
+
+$todayDue="Select sum(amount) from transactions where date='$date' AND type='due'";
+
+
+$transactionsByName="select * from transactions Where customerId LIKE '%$s%' OR amount LIKE '%$s%' OR date LIKE '%$s%'";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SetupBoxNo
+customerName
+aadhaarNo
+mobileNo
+villageName
