@@ -18,18 +18,6 @@ class security{
 
    public $userIdColumn;
 
-   public static function login($userId,$userClass="customer",$userTable="customers",$userIdColumn="userId")
-   {
-       self::$userIdColumn=$userIdColumn;
-       $_SESSION[self::$userIdColumn]=$userId;
-       self::$userId=$userId;
-       self::$sessionId=session_id();
-       $conn=connection::getConnection();
-       $userRepo=new repository($userClass,$userTable,$userIdColumn,$conn);
-       self::$userData=$userRepo->fetch($userId)['data'];
-       self::$roles=explode(',',self::$userData->roles);
-
-   }
 
    public static function setUser($userId,$password,$userClass="customer",$userTable="customers",$userIdColumn="userId")
    {
